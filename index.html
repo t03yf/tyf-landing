@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TYF | Ultimate Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Roboto', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+
+  header {
+    position: sticky;
+    top: 0;
+    background: #111;
+    color: #fff;
+    z-index: 100;
+    padding: 30px 20px;
+    box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+  }
+  header p {
+    font-size: 1.2rem;
+    color: #ff4500;
+  }
+
+  .cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    background: #ff4500;
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .cta-button:hover { background: #e03e00; transform: scale(1.05); }
+
+  section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+  }
+  section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ff4500;
+  }
+  section p { font-size: 1.1rem; line-height: 1.7; text-align: center; margin-bottom: 30px; color: #fff; }
+
+  .features { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 50px; }
+  .feature-card {
+    flex: 1 1 300px;
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255,69,0,0.15);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .feature-card:hover { transform: translateY(-10px); }
+  .feature-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #ff4500; }
+  .feature-card p { color: #fff; }
+
+  footer {
+    text-align: center;
+    padding: 50px 20px;
+    color: #777;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+  }
+
+  /* Animations */
+  .fade-in { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+  .fade-in.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚀 Boost Your Sales Today</h1>
+  <p>Professional landing pages that convert visitors into paying customers instantly.</p>
+</header>
+
+<section class="fade-in">
+  <h2>🎯 Your Current Problem</h2>
+  <p>Visitors enter your site but don’t buy? Ads consuming budget without returns? Let’s fix it today!</p>
+</section>
+
+<section class="fade-in">
+  <h2>💡 The Professional Solution</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Attractive Design</h3>
+      <p>Clear colors and smooth UX make every visitor focus on purchasing.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Persuasive Copywriting</h3>
+      <p>Texts that push the client to take action immediately.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Convert Visitors</h3>
+      <p>Every element is calculated to increase sales with minimal effort.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <h2>✨ Ready to Start?</h2>
+  <p>Let’s build your ultimate landing page today and increase your sales instantly!</p>
+  <a href="https://www.instagram.com/tyf.landingpages/" class="cta-button" target="_blank">Start Now with TYF</a>
+</section>
+
+<footer>
+  TYF | Landing Pages that Sell
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+  const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if(!entry.isIntersecting) return;
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+  faders.forEach(fader => { appearOnScroll.observe(fader); });
+</script>
+
+</body>
+</html>
